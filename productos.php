@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 
     <h3>Agregar Productos</h3>
     <form action="insertar_producto.php" method="post">
-        <input type="text" name="nombre_categoria" id="nombre_categoria" placeholder="Nombre del producro" required>
+        <input type="text" name="nombre_producto" id="nombre_producto" placeholder="Nombre del producto" required>
         <input type="number" name="cantidad_producto" id="cantidad_producto" placeholder="Cantidad" required>
         <select name="id_categoria" id=""required>
             <option value="">Selecione una categoria</option>
