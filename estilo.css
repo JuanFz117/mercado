@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* body {
+=======
+body {
+>>>>>>> b2b2a0e0609983e778108b503595909c1e8f19eb
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
@@ -57,6 +61,7 @@ fieldset {
 }
 
 /* Optional: Styling for the placeholder text */
+
 /* input::placeholder {
     color: #888;
 } */ 
@@ -168,4 +173,7 @@ a:active {
 
 button:focus, a:focus {
     outline: none;
+}
+input::placeholder {
+    color: #888;
 }

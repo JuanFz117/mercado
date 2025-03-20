@@ -13,7 +13,11 @@
             <input type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Usuario" required><br><br>
             <input type="password" name="pass_usuario" id="pass_usuario" placeholder="Contraseña" required><br><br>
             <input type="button" value="Iniciar Sesion" id="iniciar_sesion" name="iniciar_sesion" onclick="document.form.action='login_update.php';document.form.submit()"/>
+<<<<<<< HEAD
             <input type="button" value="Registrate Aqui"registrar" name="registrar" onclick="document.form.action='registrarse.php';document.form.submit()"/>
+=======
+            <input type="button" value="Registrate Aqui="registrar" name="registrar" onclick="document.form.action='registrarse.php';document.form.submit()"/>
+>>>>>>> b2b2a0e0609983e778108b503595909c1e8f19eb
         </fieldset>
     </form>
 </body>

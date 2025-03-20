@@ -14,6 +14,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
         /* Reseteo de márgenes y paddings predeterminados */
 /* Diseño galáctico */
@@ -129,6 +130,7 @@ button:focus, a:focus {
 }
 
     </style>
+
     
 </head>
 <body>

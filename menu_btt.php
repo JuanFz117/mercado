@@ -14,8 +14,11 @@
                document.form.submit()"/>
             <input type="button" value="Gestion de categorias" id="Gestion de categorias" name="Gestion de categorias" onclick="document.form.action='frm_categoria.php';
                document.form.submit()"/>
+<<<<<<< HEAD
                 <input type="button" value="Gestionar clientes" id="Gestionar clientes" name="Gestionar clientes" onclick="document.form.action='clientes.php';
                document.form.submit()"/>
+=======
+>>>>>>> b2b2a0e0609983e778108b503595909c1e8f19eb
                
         </fieldset>
     </form>

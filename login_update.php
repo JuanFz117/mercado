@@ -1,6 +1,8 @@
 <?php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 session_start();
 include 'conexion.php';
 
@@ -15,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
+
     // $user = $result->fetch_assoc();
 
     // echo "Usuario ingresado: " . htmlspecialchars($nombre_usuario) . "<br>";
@@ -27,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     echo "❌ ERROR: Las contraseñas NO coinciden.<br>";
     // }
 
+
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
 
@@ -36,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id_usuario'] = $user['id_usuario'];
             header("Location: menu_btt.php");
             exit();
+
         } 
         else {
             $_SESSION['error'] = "Contraseña incorrecta";
