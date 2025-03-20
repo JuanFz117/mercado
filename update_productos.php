@@ -3,13 +3,14 @@ include 'conexion.php';
 
 
 if (isset($_POST['actualizar'])){
-    $id_producto =$_POST['id_producto'];
-    $cantidad_producto = $_POST['cantidad_producto'];
+    $id_producto =intval($_POST['id_producto']);
+    $cantidad_producto =intval($_POST['cantidad_producto']);
+    $valor_producto = intval($_POST['valor_producto']);
     $nombre_producto = $_POST['nombre_producto'];
 
-    $sql = "UPDATE productos SET nombre_producto = ?, cantidad_producto = ?, id_categoria = ? WHERE id_producto = ?";
+    $sql = "UPDATE productos SET nombre_producto = ?, cantidad_producto = ?, valor_producto = ? WHERE id_producto = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("siii",$nuevo_nombre, $nueva_cantidad, $nueva_categoria, $id_producto);
+    $stmt->bind_param("siii",$nombre_producto, $cantidad_producto, $valor_producto, $id_producto);
 
 
     if ($stmt->execute()){
