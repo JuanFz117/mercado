@@ -15,6 +15,7 @@ if (isset($_GET['id'])){
     }else {
         echo "Error al eliminar producto: ". $stmt->error;
     }
+    
 
     $stmt->close();
     $stmt->close();

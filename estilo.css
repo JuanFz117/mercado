@@ -1,178 +1,119 @@
-
-/* 
+/* Estilos generales */
 body {
-
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #fffcfc;
     margin: 0;
-    background-color: #000000
-}
-
-form {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    width: 100%;
-    max-width: 400px;
-}
-
-h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+    padding: 20px;
     color: #333;
 }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-input[type="button"] {
-    margin: 10px;
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-input[type="button"]:hover {
-    background-color: #45a049;
-}
-
-fieldset {
-    border: none;
-}
-
-/* Optional: Styling for the placeholder text */
-
-/* input::placeholder {
-    color: #888;
-} */ 
-
-
-body {
-    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-    font-family: 'Arial', sans-serif;
-    color: white;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-}
-
-h2 {
-    text-align: center;
-    color: #fff;
-    font-size: 2em;
-    margin-top: 30px;
-}
-
-form {
-    background: rgba(0, 0, 0, 0.6);
+/* Contenedores */
+form, .users-table {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
     padding: 20px;
     border-radius: 10px;
-    width: 60%;
-    margin: 20px auto;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.1em;
+/* Títulos */
+h1, h2, h3 {
+    color: #007bff;
+    text-align: center;
 }
 
-form input[type="text"], form input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #3a3a3a;
-    background-color: #16213e;
-    color: white;
-    font-size: 1em;
-}
-
-form input[type="text"]:focus, form input[type="email"]:focus {
-    outline: none;
-    border-color: #00ff99;
-    box-shadow: 0 0 5px #00ff99;
-}
-
-form button {
-    background-color: #00ff99;
-    color: #16213e;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-form button:hover {
-    background-color: #00cc80;
-}
-
+/* Tablas */
 table {
-    width: 80%;
-    margin: 30px auto;
+    width: 100%;
     border-collapse: collapse;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
 }
 
 th, td {
     padding: 10px;
+    border: 1px solid #ddd;
     text-align: center;
-    font-size: 1.1em;
-    border: 1px solid #444;
 }
 
-th {
-    background-color: #16213e;
-    color: #00ff99;
+thead {
+    background-color: #007bff;
+    color: white;
 }
 
-td {
-    background-color: #0f3460;
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-a {
-    color: #00ff99;
+tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+/* Formularios */
+fieldset {
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input,
+select {
+    width: 90%;  /* Ajustado para mejor apariencia */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block; /* Hace que ocupen toda la línea */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo específico para input password */
+
+
+/* Estilos para botones */
+button{
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px auto; /* Centrando los botones */
+    display: block; /* Hace que ocupen toda la línea */
+    width: 95%;
+}
+
+button:hover, input[type="button"]:hover {
+    background: #0056b3;
+}
+
+/* Botones de acciones */
+.users-table--edit {
+    background-color: #28a745;
+    padding: 5px 10px;
+    color: white;
     text-decoration: none;
-    margin-right: 10px;
-    transition: color 0.3s;
+    border-radius: 5px;
 }
 
-a:hover {
-    color: #00cc80;
+.users-table--delete {
+    background-color: #dc3545;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
-a:active {
-    color: #ffffff;
+.users-table--edit:hover {
+    background-color: #218838;
 }
 
-button:focus, a:focus {
-    outline: none;
-}
-input::placeholder {
-    color: #888;
+.users-table--delete:hover {
+    background-color: #c82333;
 }
