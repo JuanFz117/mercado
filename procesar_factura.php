@@ -11,10 +11,10 @@ if ($conn->connect_error) {
 }
 
 //obtener datos del formulario 
-$id_cliente=$_POST['id_cliente'];
-$fecha_emision=$_POST['fecha_emision'];
-$productos=$_POST['productos'];
-$cantidades=$_POST['cantidad'];
+$id_cliente= $_POST['id_cliente'];
+$fecha_emision= $_POST['fecha_emision'];
+$productos= $_POST['productos'];
+$cantidades= $_POST['cantidad'];
 
 //calcular el total de la factura 
 $total_factura=0;
@@ -24,7 +24,7 @@ for($i= 0; $i < count($productos); $i++){
     $cantidad=$cantidades[$i];
 
     //obtener el precio del producto
-    $sqlPrecio="SELECT valor_producto FROM productos WHERE id_productos=?";
+    $sqlPrecio="SELECT valor_producto FROM productos WHERE id_producto=?";
     $stmtPrecio=$conn->prepare($sqlPrecio);
     if (!$stmtPrecio){
         die("Error en la preparacion del precio: " . $conn->error);

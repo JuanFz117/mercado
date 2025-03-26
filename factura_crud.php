@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 $sqlClientes = "SELECT id_cliente, nombre_cliente FROM clientes";
 $resultClientes = $conn->query($sqlClientes);
 
-$sqlProductos = "SELECT ID_PRODUCTO, NOMBRE_PRODUCTO, VALOR_PRODUCTO FROM productos";
+$sqlProductos = "SELECT id_producto, nombre_producto, valor_producto FROM productos";
 $resultProductos = $conn->query($sqlProductos);
 ?>
 
@@ -22,7 +22,7 @@ $resultProductos = $conn->query($sqlProductos);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facturación</title>
-    
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <div class="container">
@@ -63,42 +63,54 @@ $resultProductos = $conn->query($sqlProductos);
         <?php } ?>
 
         function agregarProducto() {
-            const table = document.getElementById('productosTable');
-            const row = table.insertRow();
+    const table = document.getElementById('productosTable');
+    const row = table.insertRow();
 
-            let select = document.createElement('select');
-            select.name = 'productos[]';
-            productos.forEach(prod => {
-                let option = document.createElement('option');
-                option.value = prod.id;
-                option.text = ${prod.nombre} - $${prod.precio.toFixed(2)};
-                select.appendChild(option);
-            });
-            row.insertCell(0).appendChild(select);
+    // Crear select de productos
+    let select = document.createElement('select');
+    select.name = 'productos[]';
+    select.onchange = actualizarTotal;
 
-            let cantidad = document.createElement('input');
-            cantidad.type = 'number';
-            cantidad.name = 'cantidad[]';
-            cantidad.min = 1;
-            cantidad.value = 1;
-            cantidad.onchange = actualizarTotal;
-            row.insertCell(1).appendChild(cantidad);
+    let optionDefault = document.createElement('option');
+    optionDefault.text = 'Seleccionar producto';
+    optionDefault.value = "";
+    select.appendChild(optionDefault);
 
-            let precioUnitario = document.createElement('span');
-            precioUnitario.innerText = "$0.00";
-            row.insertCell(2).appendChild(precioUnitario);
+    productos.forEach(prod => {
+        let option = document.createElement('option');
+        option.value = prod.id;
+        option.text = `${prod.nombre} - $${prod.precio}`;
+        select.appendChild(option);
+    });
 
-            let total = document.createElement('span');
-            total.innerText = "$0.00";
-            row.insertCell(3).appendChild(total);
+    row.insertCell(0).appendChild(select);
 
-            let botonEliminar = document.createElement('button');
-            botonEliminar.innerText = 'Borrar';
-            botonEliminar.classList.add('btn-delete');
-            botonEliminar.onclick = function () { table.deleteRow(row.rowIndex); actualizarTotal(); }
-            row.insertCell(4).appendChild(botonEliminar);
-            actualizarTotal();
-        }
+    // Crear input de cantidad
+    let cantidad = document.createElement('input');
+    cantidad.type = 'number';
+    cantidad.name = 'cantidad[]';
+    cantidad.min = 1;
+    cantidad.value = 1;
+    cantidad.onchange = actualizarTotal;
+    row.insertCell(1).appendChild(cantidad);
+
+    // Crear celda de precio unitario
+    let precioUnitario = document.createElement('span');
+    precioUnitario.innerText = "$0.00";
+    row.insertCell(2).appendChild(precioUnitario);
+
+    // Crear celda de total
+    let total = document.createElement('span');
+    total.innerText = "$0.00";
+    row.insertCell(3).appendChild(total);
+
+    // Crear botón de eliminar
+    let botonEliminar = document.createElement('button');
+    botonEliminar.innerText = 'Borrar';
+    botonEliminar.onclick = function () { table.deleteRow(row.rowIndex); actualizarTotal(); }
+    row.insertCell(4).appendChild(botonEliminar);
+}
+
 
         function actualizarTotal() {
             const rows = document.querySelectorAll('#productosTable tr');
@@ -110,12 +122,12 @@ $resultProductos = $conn->query($sqlProductos);
                 const cantidad = parseInt(row.cells[1].querySelector('input').value);
                 const producto = productos.find(p => p.id == select.value);
 
-                row.cells[2].querySelector('span').innerText = $${producto.precio.toFixed(2)};
+                row.cells[2].querySelector('span').innerText = `$${producto.precio.toFixed(2)}`;
                 const totalProducto = producto.precio * cantidad;
-                row.cells[3].querySelector('span').innerText = $${totalProducto.toFixed(2)};
+                row.cells[3].querySelector('span').innerText = `$${totalProducto.toFixed(2)}`;
                 totalFactura += totalProducto;
             });
-            document.getElementById('totalFacturaActual').innerText = $${totalFactura.toFixed(2)};
+            document.getElementById('totalFacturaActual').innerText = `$${totalFactura.toFixed(2)}`;
         }
     </script>
 </body>

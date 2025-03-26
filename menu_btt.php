@@ -16,6 +16,8 @@
             <input type="button" value="Gestion de categorias" id="Gestion de categorias" name="Gestion de categorias" onclick="document.form.action='frm_categoria.php';
                document.form.submit()"/>
                 <input type="button" value="Gestionar clientes" id="Gestionar clientes" name="Gestionar clientes" onclick="document.form.action='clientes.php';
+                 document.form.submit()"/>  
+                <input type="button" value="Gestionar facturas" id="Gestionar facturas" name="Gestionar facturas" onclick="document.form.action='factura_crud.php';
                document.form.submit()"/>  
         </fieldset>
     </form>
