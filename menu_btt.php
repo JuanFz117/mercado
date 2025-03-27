@@ -19,6 +19,8 @@
                  document.form.submit()"/>  
                 <input type="button" value="Gestionar facturas" id="Gestionar facturas" name="Gestionar facturas" onclick="document.form.action='factura_crud.php';
                document.form.submit()"/>  
+                <input type="button" value="Gestionar almacenes" id="Gestionar almacenes" name="Gestionar almacenes" onclick="document.form.action='almacen_crud.php';
+                document.form.submit()"/>
         </fieldset>
     </form>
 </body>
