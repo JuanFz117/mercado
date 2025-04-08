@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../conexion.php';
 
 
 if (isset($_POST['actualizar'])){
@@ -14,7 +14,7 @@ if (isset($_POST['actualizar'])){
 
 
     if ($stmt->execute()){
-        header("Location: productos.php");
+        header("Location: formulario_productos.php");
         exit();
     }else{
         echo "Error al actualizar el producto".$stmt->error;

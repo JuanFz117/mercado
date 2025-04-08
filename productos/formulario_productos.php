@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../conexion.php';
 
 
 $sql = "SELECT p.id_producto, p.nombre_producto, p.cantidad_producto ,p.valor_producto, c.nombre_categoria FROM productos p JOIN categorias c ON p.id_categoria = c.id_categoria";
@@ -175,7 +175,7 @@ button:focus, a:focus {
                 <td><?=$row['valor_producto']?></td>
 
                 <td>
-                     <a href="update.php?id=<?= $row['id_producto'] ?>">Editar</a> |
+                     <a href="formulario_update.php?id=<?= $row['id_producto'] ?>">Editar</a> |
                      <a href="delete.php?id=<?= $row['id_producto'] ?>">Eliminar</a>
                 </td>  
             </tr>

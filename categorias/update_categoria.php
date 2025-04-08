@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../conexion.php';
 
 if (isset($_POST['actualizar'])){
     $id_categoria =$_POST['id_categoria'];

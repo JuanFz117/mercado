@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../styles/estilo.css">
 </head>
 <body>
     <h2>Actualizar categoria</h2>
@@ -13,7 +13,7 @@
         <select name="id_categoria" required>
             <option value="">Seleccione una categoria</option>
             <?php
-             include 'conexion.php';
+             include '../conexion.php';
              $sql= "SELECT id_categoria, nombre_categoria FROM categorias";
             $result =$conn->query($sql);
             while ($row = $result-> fetch_assoc()){

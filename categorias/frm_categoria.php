@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../styles/estilo.css">
 </head>
 <body>
     
@@ -22,7 +22,7 @@
               document.form.submit()"/>
             <input type="button" value="Consulta" id="consulta" name="consulta" onclick="document.form.action='consulta.php';
                document.form.submit()"/>
-            <input type="button" value="Actualizar" id="actualizar" name="actualizar" onclick="document.form.action='fm_actualizar.php';
+            <input type="button" value="Actualizar" id="actualizar" name="actualizar" onclick="document.form.action='frm_actualizar.php';
                document.form.submit()"/>
 
             

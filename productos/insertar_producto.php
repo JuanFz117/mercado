@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../conexion.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $nombre_producto = ($_POST['nombre_producto']);
@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $stmt->bind_param("siii", $nombre_producto, $cantidad_producto , $id_categoria, $valor_producto);
 
     if($stmt->execute()){
-        header("Location: productos.php");
+        header("Location: formulario_productos.php");
         exit();
     }else{
         echo "Error al agregar producto: " .$stmt->error;
