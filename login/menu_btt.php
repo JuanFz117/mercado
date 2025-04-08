@@ -21,6 +21,8 @@
                document.form.submit()"/>  
                 <input type="button" value="Gestionar almacenes" id="Gestionar almacenes" name="Gestionar almacenes" onclick="document.form.action='../almacen/almacen_crud.php';
                 document.form.submit()"/>
+                <input type="button" value="Gestionar proveedor" id="Gestionar proveedor" name="Gestionar proveedor" onclick="document.form.action='../clientes/proveedores_crud.php';
+                document.form.submit()"/>
         </fieldset>
     </form>
 </body>
