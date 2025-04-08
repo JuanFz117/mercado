@@ -1,5 +1,5 @@
 <?php 
-include 'conexion.php';
+include '../conexion.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_proveedor']) && !is_numeric($_POST['id_proveedor'])) {
     $id_proveedor = intval($_POST['id_proveedor']);
     

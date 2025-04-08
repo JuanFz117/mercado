@@ -70,7 +70,7 @@ $result = $conn->query("SELECT * FROM clientes");
         <label>Teléfono: <input type="text" name="telefono" value="<?= isset($_GET['telefono']) ? htmlspecialchars($_GET['telefono']) : '' ?>"></label><br>
         <button type="submit">Guardar</button>
     </form>
-   
+
 
     <h2>Lista de Clientes</h2>
     <table border="1">
