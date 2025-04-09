@@ -11,7 +11,8 @@ if ($conn->connect_error) {
 }
 
 //obtener datos del formulario 
-$id_cliente= $_POST['id_proveedor'];
+
+$id_proveedor= $_POST['id_proveedor'];
 $fecha_emision= $_POST['fecha_emision'];
 $productos= $_POST['productos'];
 $cantidades= $_POST['cantidad'];
@@ -43,23 +44,23 @@ for($i= 0; $i < count($productos); $i++){
 }
 
 //insertar la factura en la tabla 'facturas'
-$sqlFactura="INSERT INTO proveedores (id_proveedor, fecha, total,estado) VALUES (?, ?, ?, ?)";
+$sqlFactura="INSERT INTO ordenes_compra (id_proveedor, fecha, total,estado) VALUES (? ,?, ?, ?)";
 $stmt=$conn->prepare($sqlFactura);
 if (!$stmt){
     die("Error en la preparacion de la factura: " . $conn->error);
 }
 
-$stmt->bind_param("isds", $id_cliente, $fecha_emision, $total_factura,$estado);
+$stmt->bind_param("isds", $id_proveedor, $fecha_emision, $total_factura,$estado);
 
 if(!$stmt->execute()){
     die("Error al insertar la factura: " . $stmt->error);
 }
 
-$id_factura=$stmt->insert_id;
+$id_orden=$stmt->insert_id;
 $stmt->close();
 
 // insertar los productos de la factura en la tabla 'detalle_factura'
-$sqlDetalle="INSERT INTO detalle_orden(id_detalle,id_orden, id_producto, cantidad,) VALUES (?, ?, ?, ?)";
+$sqlDetalle="INSERT INTO detalle_orden(id_orden, id_producto, cantidad) VALUES ( ?, ?, ?)";
 $stmtDetalle=$conn->prepare($sqlDetalle);
 if (!$stmtDetalle){
     die("Error en la preparacion del detalle: " . $conn->error);
@@ -67,9 +68,11 @@ if (!$stmtDetalle){
 for($i=0; $i < count($productos); $i++){
     $id_producto=$productos[$i];
     $cantidad=$cantidades[$i];
+   
+    
 
-    $stmtDetalle->bind_param("iii", $id_factura, $id_producto, $cantidad);
-    if(!$stmtDetalle->execute()){
+    $stmtDetalle->bind_param("iii", $id_orden, $id_producto, $cantidad);
+    if (!$stmtDetalle->execute()) {
         die("Error al insertar el detalle: " . $stmtDetalle->error);
     }
 }
@@ -78,6 +81,7 @@ $stmtDetalle->close();
 $conn->close();
 
 //mostrar el total de la factura 
-echo "Factura registrada con exito. Numero de Factura " . $id_factura . "<br>";
+echo "Factura orden de compra registrada con exito. Numero de Factura " . $id_orden . "<br>";
 echo "Total última factura $" . number_format($total_factura, 2);
+
 ?>

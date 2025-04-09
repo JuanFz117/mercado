@@ -52,7 +52,8 @@ $valores = explode("','", $enum);
             <select name="id_proveedor" required>
                 <option value="">Seleccionar proveedor</option>
                 <?php while ($row = $sqlProveedores->fetch_assoc()) { ?>
-                    <option value="<?php echo $row['id_proveedor']; ?>"> <?php echo $row['nombre_proveedor']; ?> <?php echo $row['contacto_interno']; ?></option>
+                    <option value="<?php echo $row['id_proveedor']; ?>"><?php echo $row['nombre_proveedor']; ?></option>
+                    <!-- <?php echo $row['contacto_interno']; ?> -->
                 <?php } ?>
             </select>
             <label for="estado">Estado:</label>
@@ -72,9 +73,11 @@ $valores = explode("','", $enum);
                     <th>Acción</th>
                 </tr>
             </table>
-            
+            <!-- <input type="button" value="Consultar" id="Consultar" name="Consultar" onclick="document.form.action='consultar_orden.php';
+                document.form.submit()"/> -->
             <button type="button" onclick="agregarProducto()">Agregar Producto</button>
             <input type="submit" value="Terminar Orden">
+            
         </form>
     </div>
 
